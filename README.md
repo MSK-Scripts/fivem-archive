@@ -16,3 +16,6 @@ Blackmoney Washing Script
 * [ESX Legacy](https://github.com/esx-framework/esx_core)
 * [msk_core](https://github.com/MSK-Scripts/msk_core)
 * [ox_lib](https://github.com/overextended/ox_lib)
+
+### Optional Requirements
+* [msk_blackout](https://github.com/MSK-Scripts/msk_blackout)
