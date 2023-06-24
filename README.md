@@ -13,6 +13,6 @@ Blackmoney Washing Script
 * msk_blackmoney_skip *(Ignores second Skillcheck inside the MLO)*
 
 ## Requirements
-* ESX Legacy
-* msk_core
-* ox_lib
+* [ESX Legacy](https://github.com/esx-framework/esx_core)
+* [msk_core](https://github.com/MSK-Scripts/msk_core)
+* [ox_lib](https://github.com/overextended/ox_lib)
