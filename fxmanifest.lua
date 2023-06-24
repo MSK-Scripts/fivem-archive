@@ -3,14 +3,14 @@ games { 'gta5' }
 
 author 'Musiker15 - MSK Scripts'
 name 'msk_blackmoney'
-description 'Blackmoney Miniheist'
+description 'MSK Blackmoney Miniheist'
 version '1.0'
 
 lua54 'yes'
 
 shared_script {
     '@msk_core/import.lua',
-	'@ox_lib/init.lua',
+    '@ox_lib/init.lua',
     'config.lua'
 }
 
@@ -19,13 +19,10 @@ client_scripts {
 }
 
 server_scripts {
-    '@oxmysql/lib/MySQL.lua',
     'server.lua'
 }
 
 dependencies {
     'es_extended',
-    'msk_core',
-    'oxmysql',
-	'ox_lib',
+    'msk_core'
 }

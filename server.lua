@@ -4,7 +4,7 @@ local isBlackout = false -- msk_blackout
 AddEventHandler('msk_blackout:powerOn', blackoutPowerOn)
 AddEventHandler('msk_blackout:powerOff', blackoutPowerOff)
 
-ESX.RegisterCommand('msk_blackmoney', {'admin'}, function(xPlayer, args, showError)
+ESX.RegisterCommand('msk_blackmoney', {'admin', 'support'}, function(xPlayer, args, showError)
 	local blackmoney = xPlayer.getAccount('black_money')
 	local hasItem = xPlayer.getInventoryItem(Config.neededItem)
 
@@ -14,7 +14,7 @@ ESX.RegisterCommand('msk_blackmoney', {'admin'}, function(xPlayer, args, showErr
 	end
 end, false)
 
-ESX.RegisterCommand('msk_blackmoney_skip', {'admin'}, function(xPlayer, args, showError)
+ESX.RegisterCommand('msk_blackmoney_skip', {'admin', 'support'}, function(xPlayer, args, showError)
 	xPlayer.triggerEvent('msk_blackmoney:skipSkillCheck', Config.Locations['wash_money'].moneyCut.coords)
 end, false)
 
@@ -30,8 +30,10 @@ AddEventHandler('msk_blackmoney:notifyJobs', function()
         local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
 
         if MSK.Table_Contains(Config.notifyJobs.jobs, xPlayer.job.name) then
-            Config.Notification(xPlayer.source, 'Jemand versucht gerade Schwarzgeld zu waschen')
-            TriggerClientEvent('msk_blackmoney:sendJobBlipNotify', xPlayer.source)
+			if not isBlackout then
+				Config.Notification(xPlayer.source, 'Jemand versucht gerade Schwarzgeld zu waschen')
+				TriggerClientEvent('msk_blackmoney:sendJobBlipNotify', xPlayer.source)
+			end
         end
     end
 end)
@@ -46,14 +48,38 @@ AddEventHandler('msk_blackmoney:getMoneyAfterWashing', function()
 
 	xPlayer.removeAccountMoney('black_money', blackmoney.money)
 
-	local percent
-	if Config.Percent < 10 then
-		percent = '0.0' .. Config.Percent
-	elseif Config.Percent >= 10 and Config.Percent < 100 then
-		percent = '0.' .. Config.Percent
-	else
-		percent = '1'
+	local hasItem = false
+	if Config.BlackmoneyItems.enable then 
+		for k, v in ipairs(Config.BlackmoneyItems.items) do
+			logging('debug', v.item, v.percent)
+			local getItem = xPlayer.getInventoryItem(v.item)
+
+			if getItem and getItem.count > 0 then
+				hasItem = v.percent
+				break
+			end
+		end
 	end
+
+	local percent
+	if hasItem then
+		if hasItem < 10 then
+			percent = '0.0' .. hasItem
+		elseif hasItem >= 10 and hasItem < 100 then
+			percent = '0.' .. hasItem
+		else
+			percent = '1'
+		end
+	else
+		if Config.Percent < 10 then
+			percent = '0.0' .. Config.Percent
+		elseif Config.Percent >= 10 and Config.Percent < 100 then
+			percent = '0.' .. Config.Percent
+		else
+			percent = '1'
+		end
+	end
+
 	local amount = blackmoney.money * tonumber(percent)
 	amount = MSK.Round(amount)
 

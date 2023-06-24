@@ -8,10 +8,6 @@ local startedBlackmoney, successBlackmoneyTeleport = false, false
 local printedMoney, printedMoneyEnd, cuttedMoney, countedMoney = false, false, false, false
 local printLocations, JobBlips = {}, {}
 
-CreateThread(function()
-    ESX.PlayerData = ESX.GetPlayerData()
-end)
-
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
     ESX.PlayerData = xPlayer
@@ -44,6 +40,7 @@ AddEventHandler('msk_blackmoney:startBlackmoney', function(coords)
 
     if dist <= 2.5 and isAllowed() then
         startedBlackmoney = true
+        TriggerEvent("PAC:IgnoreNextNoclipFlag")
         blackmoneyTeleport()
     end
 end)
@@ -56,7 +53,7 @@ CreateThread(function()
 
         if dist <= 2.5 and isAllowed() then
             sleep = 0
-            MSK.HelpNotification('Drücke ~g~E~s~ um Schwarzgeld Heist zu starten')
+            MSK.HelpNotification('~INPUT_CONTEXT~ um den Schwarzgeld Heist zu starten')
 
             if Config.startPoint.marker.enable then
 				DrawMarker(Config.startPoint.marker.type, Config.startPoint.coords.x, Config.startPoint.coords.y, Config.startPoint.coords.z - 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.startPoint.marker.size.a, Config.startPoint.marker.size.b, Config.startPoint.marker.size.c, Config.startPoint.marker.color.a, Config.startPoint.marker.color.b, Config.startPoint.marker.color.c, 100, false, true, 0, false)
@@ -85,6 +82,7 @@ CreateThread(function()
                         end
 
                         if success then
+                            --TriggerServerEvent('msk_blackmoney:getMoneyAfterWashing')
                             startedBlackmoney = true
                             blackmoneyTeleport()
                         end
@@ -108,7 +106,8 @@ end)
 
 blackmoneyTeleport = function()
     local playerPed = PlayerPedId()
-	
+
+	TriggerEvent("PAC:IgnoreNextNoclipFlag")
 	SetEntityCoords(playerPed, Config.Locations['startWashmoney'][1], Config.Locations['startWashmoney'][2], Config.Locations['startWashmoney'][3], false, false, false, true)
 	SetEntityHeading(playerPed, Config.Locations['startWashmoney'][4])
     successBlackmoneyTeleport = true
@@ -172,7 +171,7 @@ CreateThread(function()
                                 TaskPlayAnim(playerPed, dict, anim, 8.0, 1.0, -1, 49, 0, false, false, false)
                             end
 
-                            exports['levitate_progress']:startUI(v.time * 1000)
+                            -- exports['le_progress']:startUI(v.time * 1000)
 
                             local timeout = MSK.AddTimeout(v.time * 1000, function()
                                 done = true
@@ -242,7 +241,7 @@ CreateThread(function()
                             TaskPlayAnim(playerPed, dict, anim, 8.0, 1.0, -1, 49, 0, false, false, false)
                         end
 
-                        exports['levitate_progress']:startUI(Config.Locations['wash_money'].moneyPrintEnd.time * 1000)
+                        --exports['le_progress']:startUI(Config.Locations['wash_money'].moneyPrintEnd.time * 1000)
 
                         local timeout = MSK.AddTimeout(Config.Locations['wash_money'].moneyPrintEnd.time * 1000, function()
                             done = true
@@ -305,7 +304,7 @@ CreateThread(function()
                         if success then
                             local done = false
 
-                            exports['levitate_progress']:startUI(Config.Locations['wash_money'].moneyCut.time * 1000)
+                            --exports['le_progress']:startUI(Config.Locations['wash_money'].moneyPrintEnd.time * 1000)
 
                             local timeout = MSK.AddTimeout(Config.Locations['wash_money'].moneyCut.time * 1000, function()
                                 done = true
@@ -357,7 +356,7 @@ AddEventHandler('msk_blackmoney:skipSkillCheck', function(coords)
             TaskPlayAnim(playerPed, Config.SkillCheck.animation.dict, Config.SkillCheck.animation.anim, 8.0, 1.0, -1, 49, 0, false, false, false)
         end
 
-        exports['levitate_progress']:startUI(Config.Locations['wash_money'].moneyCut.time * 1000)
+        --exports['le_progress']:startUI(Config.Locations['wash_money'].moneyPrintEnd.time * 1000)
 
         local timeout = MSK.AddTimeout(Config.Locations['wash_money'].moneyCut.time * 1000, function()
             done = true
@@ -411,7 +410,7 @@ CreateThread(function()
                             TaskPlayAnim(playerPed, Config.SkillCheck.animation.dict, Config.SkillCheck.animation.anim, 8.0, 1.0, -1, 49, 0, false, false, false)
                         end
 
-                        exports['levitate_progress']:startUI(Config.Locations['wash_money'].moneyCount.time * 1000)
+                        --exports['le_progress']:startUI(Config.Locations['wash_money'].moneyPrintEnd.time * 1000)
 
                         local timeout = MSK.AddTimeout(Config.Locations['wash_money'].moneyCount.time * 1000, function()
                             done = true
@@ -472,6 +471,8 @@ sendJobBlipNotify = function(notify)
 end
 
 isAllowed = function()
+    if not Config.allowed.enable then return true end
+
     for k, v in pairs(Config.allowed.jobs) do
         if k == ESX.PlayerData.job.name and v <= ESX.PlayerData.job.grade then
             return true

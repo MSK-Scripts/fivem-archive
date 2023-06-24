@@ -7,10 +7,9 @@ Config.Debug = true
 -- !!! This function is clientside AND serverside !!!
 Config.Notification = function(source, message)
     if IsDuplicityVersion() then -- serverside
-        local xPlayer = ESX.GetPlayerFromId(source)
-        xPlayer.showNotification(message)
+        MSK.Notification(source, message)
     else -- clientside
-        ESX.ShowNotification(message)
+        MSK.Notification(message)
     end
 end
 ----------------------------------------------------------------
@@ -21,12 +20,13 @@ Config.neededItem = 'lockpick'
 Config.notifyJobs = {
     enable = true, -- Set false if you don't want to notify specific jobs when Skillcheck was successfull
     blip = {enable = true, color = 1},
-    dispatchDelay = 40, -- in seconds
+    dispatchDelay = 45, -- in seconds
     dispatchTime = 5, -- in minutes
-    jobs = {'police', 'fib', 'sheriff'}
+    jobs = {'police', 'justice'}
 }
 
 Config.allowed = {
+    enable = false, -- If false then everybody can use it
     jobs = {
         -- ['jobname'] = grade
         ['ndrangheta'] = 6,
@@ -34,6 +34,14 @@ Config.allowed = {
     },
     character = {
         'char1:56832d3e10297ff3fa871b62b7ebab8b95e469b7', -- Musiker15 // Michael Reynold
+        'char1:99c8ab5aff4633b863521be4ae9fa43ebce941e5', -- CMD // Andi Wand
+    }
+}
+
+Config.BlackmoneyItems = {
+    enable = true, 
+    items = {
+        {item = 'iron', percent = 0}, -- With this item you only lose 0% not 15%
     }
 }
 ----------------------------------------------------------------
