@@ -1,5 +1,5 @@
 # msk_blackmoney
-Blackmoney Washing Script
+[ESX] Blackmoney Washing Script
 
 ## Description
 * Skillcheck to open the Door and get teleported into the MLO
