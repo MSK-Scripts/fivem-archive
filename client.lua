@@ -169,7 +169,7 @@ CreateThread(function()
                                 TaskPlayAnim(playerPed, dict, anim, 8.0, 1.0, -1, 49, 0, false, false, false)
                             end
 
-                            -- exports['le_progress']:startUI(v.time * 1000)
+                            lib.progressBar({duration = v.time * 1000, label = 'Schalte Maschine ein...'})
 
                             local timeout = MSK.AddTimeout(v.time * 1000, function()
                                 done = true
@@ -239,7 +239,7 @@ CreateThread(function()
                             TaskPlayAnim(playerPed, dict, anim, 8.0, 1.0, -1, 49, 0, false, false, false)
                         end
 
-                        --exports['le_progress']:startUI(Config.Locations['wash_money'].moneyPrintEnd.time * 1000)
+                        lib.progressBar({duration = Config.Locations['wash_money'].moneyPrintEnd.time * 1000, label = 'Schalte Maschine ein...'})
 
                         local timeout = MSK.AddTimeout(Config.Locations['wash_money'].moneyPrintEnd.time * 1000, function()
                             done = true
@@ -302,7 +302,7 @@ CreateThread(function()
                         if success then
                             local done = false
 
-                            --exports['le_progress']:startUI(Config.Locations['wash_money'].moneyPrintEnd.time * 1000)
+                            lib.progressBar({duration = Config.Locations['wash_money'].moneyPrintEnd.time * 1000, label = 'Schalte Maschine ein...'})
 
                             local timeout = MSK.AddTimeout(Config.Locations['wash_money'].moneyCut.time * 1000, function()
                                 done = true
@@ -354,7 +354,7 @@ AddEventHandler('msk_blackmoney:skipSkillCheck', function(coords)
             TaskPlayAnim(playerPed, Config.SkillCheck.animation.dict, Config.SkillCheck.animation.anim, 8.0, 1.0, -1, 49, 0, false, false, false)
         end
 
-        --exports['le_progress']:startUI(Config.Locations['wash_money'].moneyPrintEnd.time * 1000)
+        lib.progressBar({duration = Config.Locations['wash_money'].moneyPrintEnd.time * 1000, label = 'Schalte Maschine ein...'})
 
         local timeout = MSK.AddTimeout(Config.Locations['wash_money'].moneyCut.time * 1000, function()
             done = true
@@ -408,7 +408,7 @@ CreateThread(function()
                             TaskPlayAnim(playerPed, Config.SkillCheck.animation.dict, Config.SkillCheck.animation.anim, 8.0, 1.0, -1, 49, 0, false, false, false)
                         end
 
-                        --exports['le_progress']:startUI(Config.Locations['wash_money'].moneyPrintEnd.time * 1000)
+                        lib.progressBar({duration = Config.Locations['wash_money'].moneyPrintEnd.time * 1000, label = 'Schalte Maschine ein...'})
 
                         local timeout = MSK.AddTimeout(Config.Locations['wash_money'].moneyCount.time * 1000, function()
                             done = true
