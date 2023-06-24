@@ -1,2 +1,2 @@
 # msk_blackmoney
- Blackmoney Washing Script
+Blackmoney Washing Script
