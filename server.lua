@@ -1,10 +1,8 @@
-ESX = exports.es_extended:getSharedObject()
-
 local isBlackout = false -- msk_blackout
 AddEventHandler('msk_blackout:powerOn', blackoutPowerOn)
 AddEventHandler('msk_blackout:powerOff', blackoutPowerOff)
 
-ESX.RegisterCommand('msk_blackmoney', {'admin', 'support'}, function(xPlayer, args, showError)
+ESX.RegisterCommand('msk_blackmoney', {'admin'}, function(xPlayer, args, showError)
 	local blackmoney = xPlayer.getAccount('black_money')
 	local hasItem = xPlayer.getInventoryItem(Config.neededItem)
 
@@ -14,7 +12,7 @@ ESX.RegisterCommand('msk_blackmoney', {'admin', 'support'}, function(xPlayer, ar
 	end
 end, false)
 
-ESX.RegisterCommand('msk_blackmoney_skip', {'admin', 'support'}, function(xPlayer, args, showError)
+ESX.RegisterCommand('msk_blackmoney_skip', {'admin'}, function(xPlayer, args, showError)
 	xPlayer.triggerEvent('msk_blackmoney:skipSkillCheck', Config.Locations['wash_money'].moneyCut.coords)
 end, false)
 
@@ -104,10 +102,12 @@ MSK.RegisterCallback('msk_blackmoney:getBlackmoney', function(source, cb)
 end)
 
 blackoutPowerOn = function()
+	if not Config.MSK_Blackmoney then return end
     isBlackout = false
 end
 
 blackoutPowerOff = function()
+	if not Config.MSK_Blackmoney then return end
     isBlackout = true
 end
 

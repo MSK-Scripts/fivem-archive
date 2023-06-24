@@ -1,5 +1,3 @@
-ESX = exports.es_extended:getSharedObject()
-
 local isBlackout = false -- msk_blackout
 AddEventHandler('msk_blackout:powerOn', blackoutPowerOn)
 AddEventHandler('msk_blackout:powerOff', blackoutPowerOff)
@@ -497,10 +495,12 @@ addPrintLocations = function()
 end
 
 blackoutPowerOn = function()
+    if not Config.MSK_Blackmoney then return end
     isBlackout = false
 end
 
 blackoutPowerOff = function()
+    if not Config.MSK_Blackmoney then return end
     isBlackout = true
 end
 

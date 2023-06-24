@@ -9,6 +9,7 @@ version '1.0'
 lua54 'yes'
 
 shared_script {
+    '@es_extended/imports.lua',
     '@msk_core/import.lua',
     '@ox_lib/init.lua',
     'config.lua'
@@ -24,5 +25,6 @@ server_scripts {
 
 dependencies {
     'es_extended',
-    'msk_core'
+    'msk_core',
+    'ox_lib'
 }

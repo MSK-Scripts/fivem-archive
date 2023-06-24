@@ -13,6 +13,8 @@ Config.Notification = function(source, message)
     end
 end
 ----------------------------------------------------------------
+Config.MSK_Blackmoney = (GetResourceState("msk_blackmoney") == "started")
+----------------------------------------------------------------
 Config.Hotkey = 38
 Config.Percent = 15 -- Amount = Blackmoney - Config.Percent
 Config.neededItem = 'lockpick'
@@ -26,15 +28,15 @@ Config.notifyJobs = {
 }
 
 Config.allowed = {
-    enable = false, -- If false then everybody can use it
+    enable = true, -- If false then everybody can use it
     jobs = {
         -- ['jobname'] = grade
         ['ndrangheta'] = 6,
-        ['cardealer'] = 7,
+        ['lcn'] = 5,
     },
     character = {
-        'char1:56832d3e10297ff3fa871b62b7ebab8b95e469b7', -- Musiker15 // Michael Reynold
-        'char1:99c8ab5aff4633b863521be4ae9fa43ebce941e5', -- CMD // Andi Wand
+        'char1:56832d3e17ff3fa8',
+        'char1:99c8ab5af4633b86',
     }
 }
 
