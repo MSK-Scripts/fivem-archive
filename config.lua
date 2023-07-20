@@ -13,7 +13,7 @@ Config.Notification = function(source, message)
     end
 end
 ----------------------------------------------------------------
-Config.MSK_Blackmoney = (GetResourceState("msk_blackmoney") == "started")
+Config.MSK_Blackout = (GetResourceState("msk_blackout") == "started")
 ----------------------------------------------------------------
 Config.Hotkey = 38
 Config.Percent = 15 -- Amount = Blackmoney - Config.Percent

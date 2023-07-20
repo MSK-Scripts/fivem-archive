@@ -102,12 +102,12 @@ MSK.RegisterCallback('msk_blackmoney:getBlackmoney', function(source, cb)
 end)
 
 blackoutPowerOn = function()
-	if not Config.MSK_Blackmoney then return end
+	if not Config.MSK_Blackout then return end
     isBlackout = false
 end
 
 blackoutPowerOff = function()
-	if not Config.MSK_Blackmoney then return end
+	if not Config.MSK_Blackout then return end
     isBlackout = true
 end
 
