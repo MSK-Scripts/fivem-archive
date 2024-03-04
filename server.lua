@@ -94,11 +94,11 @@ AddEventHandler('msk_blackmoney:removeItem', function(item)
 	xPlayer.removeInventoryItem(item, 1)
 end)
 
-MSK.RegisterCallback('msk_blackmoney:getBlackmoney', function(source, cb)
+MSK.Register('msk_blackmoney:getBlackmoney', function(source)
 	local src = source
     local xPlayer = ESX.GetPlayerFromId(src)
 
-	cb(xPlayer.getAccount('black_money'))
+	return xPlayer.getAccount('black_money')
 end)
 
 blackoutPowerOn = function()
@@ -112,8 +112,6 @@ blackoutPowerOff = function()
 end
 
 logging = function(code, ...)
-    if Config.Debug then
-        local script = "[^2"..GetCurrentResourceName().."^0]"
-        MSK.logging(script, code, ...)
-    end
+    if not Config.Debug then return end
+    MSK.Logging(code, ...)
 end

@@ -58,7 +58,7 @@ CreateThread(function()
 			end
 
             if IsControlJustPressed(0, Config.Hotkey) then
-                local blackmoney = MSK.TriggerCallback('msk_blackmoney:getBlackmoney')
+                local blackmoney = MSK.Trigger('msk_blackmoney:getBlackmoney')
 
                 if blackmoney and blackmoney.money > 0 then
                     local hasItem = MSK.HasItem(Config.neededItem)
@@ -505,8 +505,6 @@ blackoutPowerOff = function()
 end
 
 logging = function(code, ...)
-    if Config.Debug then
-        local script = "[^2"..GetCurrentResourceName().."^0]"
-        MSK.logging(script, code, ...)
-    end
+    if not Config.Debug then return end
+    MSK.Logging(code, ...)
 end
