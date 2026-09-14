@@ -7,9 +7,9 @@ Config.Debug = true
 -- !!! This function is clientside AND serverside !!!
 Config.Notification = function(source, message)
     if IsDuplicityVersion() then -- serverside
-        MSK.Notification(source, 'MSK Blackmoney', message)
+        MSK.Notification(source, { title = 'MSK Blackmoney', message = message })
     else -- clientside
-        MSK.Notification('MSK Blackmoney', message)
+        MSK.Notification({ title = 'MSK Blackmoney', message = message })
     end
 end
 ----------------------------------------------------------------
