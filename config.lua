@@ -7,9 +7,9 @@ Config.VersionChecker = true
 -- !!! This function is clientside AND serverside !!!
 Config.Notification = function(source, message, info)
     if IsDuplicityVersion() then -- serverside
-        MSK.Notification(source, 'MSK Radio', message, info)
+        MSK.Notification(source, { title = 'MSK Radio', message = message, type = info })
     else -- clientside
-        MSK.Notification('MSK Radio', message, info)
+        MSK.Notification({ title = 'MSK Radio', message = message, type = info })
     end
 end
 ----------------------------------------------------------------
