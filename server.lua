@@ -1,3 +1,7 @@
+-- Notifications, TextUI and progress bars use the table forms of msk_core 4.1.0.
+-- An older msk_core shows broken notifications, so say it loudly on start.
+MSK.Check.Dependency('msk_core', '4.1.0', true)
+
 ESX = exports["es_extended"]:getSharedObject()
 
 AddEventHandler('onResourceStart', function(resource)
@@ -40,7 +44,7 @@ if Config.ESX == '1.1' then
 		if table.contains(Config.Ranks, xPlayer.group) then
 			xPlayer.triggerEvent('msk_saveCoordsMenu:openMenu')
 		else
-			MSK.Notification(src, 'Du hast nicht die Berechtigung diesen Befehl auszuführen!')
+			MSK.Notification(src, { message = 'Du hast nicht die Berechtigung diesen Befehl auszuführen!' })
 		end
 	end)
 elseif Config.ESX == 'legacy' then
@@ -88,7 +92,7 @@ AddEventHandler('msk_saveCoordsMenu:addCoords', function(name, coords)
 				["@coords"] = json.encode(cCoords)
 			})
 
-			MSK.Notification(src, 'Koordinaten erfolgreich hinzugefügt')
+			MSK.Notification(src, { message = 'Koordinaten erfolgreich hinzugefügt' })
 		else
 			logging('debug', 'ADD COORDS')
 			logging('debug', 'result[1].coords == nil')
@@ -99,7 +103,7 @@ AddEventHandler('msk_saveCoordsMenu:addCoords', function(name, coords)
 				["@coords"] = json.encode(cCoords)
 			})
 
-			MSK.Notification(src, 'Koordinaten erfolgreich hinzugefügt')
+			MSK.Notification(src, { message = 'Koordinaten erfolgreich hinzugefügt' })
 		end
 	end)
 end)
@@ -131,7 +135,7 @@ AddEventHandler('msk_saveCoordsMenu:deleteCoords', function(name, coords)
 						["@coords"] = json.encode(cCoords)
 					})
 		
-					MSK.Notification(src, 'Koordinaten erfolgreich gelöscht')
+					MSK.Notification(src, { message = 'Koordinaten erfolgreich gelöscht' })
 					break
 				end
 			end

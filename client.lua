@@ -45,7 +45,7 @@ function openSaveCoordMenu(customCoords)
 
             TriggerServerEvent('msk_saveCoordsMenu:addCoords', tostring(input), GetEntityCoords(PlayerPedId()))
         else
-            MSK.Notification(Translation[Config.Locale]['invalid_input'])
+            MSK.Notification({ message = Translation[Config.Locale]['invalid_input'] })
         end
         _menuPool:CloseAllMenus()
     end
