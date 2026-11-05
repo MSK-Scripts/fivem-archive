@@ -1,0 +1,45 @@
+ESX = exports["es_extended"]:getSharedObject()
+
+-- Parachute
+RegisterNetEvent('esx_parachute:getparachute')
+AddEventHandler('esx_parachute:getparachute', function()
+	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
+        if skin.bags_1 ~= 63 then
+            TriggerEvent('skinchanger:change', "bags_1", 63)
+            TriggerEvent('skinchanger:change', "bags_2", 0)
+            TriggerEvent('skinchanger:getSkin', function(skin)
+                TriggerServerEvent('esx_skin:save', skin)
+            end)
+        end
+    end)
+end)
+
+RegisterNetEvent('esx_parachute:delparachute')
+AddEventHandler('esx_parachute:delparachute', function()
+	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
+        if skin.bags_1 ~= 82 then
+            TriggerEvent('skinchanger:change', "bags_1", 0)
+            TriggerEvent('skinchanger:change', "bags_2", 0)
+            TriggerEvent('skinchanger:getSkin', function(skin)
+                TriggerServerEvent('esx_skin:save', skin)
+            end)
+        end
+    end)
+end)
+
+if Config.GiveParachute then
+    Citizen.CreateThread(function()
+        while true do
+            Citizen.Wait(0)
+            local playerPed = PlayerPedId()
+            local isInHeliOrPlane = false
+
+            if (IsPedInAnyHeli(playerPed) or IsPedInAnyPlane(playerPed)) and not isInHeliOrPlane then
+                isInHeliOrPlane = true
+                TriggerServerEvent('esx_parachute:setparachute')
+            else
+                isInHeliOrPlane = false
+            end
+        end
+    end)
+end
