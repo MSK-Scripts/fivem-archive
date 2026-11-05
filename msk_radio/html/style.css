@@ -1,0 +1,528 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size:0;
+    overflow:hidden;
+    font-family: 'Rajdhani';
+    user-select: none;
+    /* background-size: cover;
+    background-image:url("https://cdn.discordapp.com/attachments/703398827448729670/1222705588136448084/Screenshot_56.png?ex=6649f210&is=6648a090&hm=3a0cdb4902a9f845d6461b2856b59f2f2512dca46006c7021360cda457306829&");
+    background-repeat: no-repeat; */
+}
+
+* {
+    font-family: 'Rajdhani';
+    letter-spacing:0.2vh;
+    text-shadow:0vh 0vh 0.8vh rgba(0, 0, 0, 0.418);
+    --slider-outer:#ffffff0a ;
+    --slider-inner:#1eff00;
+    --slider-thumb:#1eff00;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.blurred {
+    filter:blur(0.4vh)
+}
+
+::-webkit-scrollbar {
+    width: 0.2vh;
+}
+
+::-webkit-scrollbar-track {
+    margin-bottom:0.28vh;
+    background: #444444;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1eff00;
+}
+
+.container {
+    position: absolute;
+    width:30vh;
+    height:20.8vh;
+    bottom:10vh;
+    right:10.0vh;
+    color:white;
+    background: repeating-linear-gradient(
+        -55deg,
+        rgba(56, 56, 56, 0.36),
+        rgba(56, 56, 56, 0.36) 1.0vh,
+        rgba(56, 56, 56, 0.4), 1.0vh,
+        rgba(56, 56, 56, 0.4) 2.0vh
+      );
+    background-color:rgb(0, 0, 0);
+    border-radius:0.4vh;
+    transition:800ms;
+    overflow:hidden;
+}
+
+.container-joined-page-active {
+    height:31.4vh;
+}
+
+.container-member-list-active {
+    height:45.2vh;
+}
+
+.white-mask {
+    font-weight:bold;
+    background:-webkit-linear-gradient(rgb(255, 255, 255), #c7c7c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.colored-mask {
+    font-weight:bold;
+    background:-webkit-linear-gradient(#1eff00, #0d7000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.top-banner {
+    position: absolute;
+    width:84%;
+    height:6vh;
+    font-weight:500;
+    padding-left:16%;
+    border-top-right-radius:0.4vh;
+    border-top-left-radius:0.4vh;
+    text-transform: uppercase;
+    background:rgba(255, 255, 255, 0.04);
+    border-width: 0.1vh;
+    border-style: solid;
+    border-top:none;
+    border-right:none;
+    border-left:none;
+    border-image: radial-gradient(#00000000, rgba(255, 255, 255, 0.123), #00000000) 1;
+    box-shadow:0vh 0vh 4vh rgba(0, 0, 0, 0.295);
+}
+
+.popup-top-banner {
+    height:4vh;
+}
+
+.top-banner-title {
+    position: absolute;
+    top:52.4%;
+    left:2vh;
+    line-height:2.2vh;
+    font-size:2.2vh;
+    transform:translateY(-50%)
+}
+
+.info-title {
+    position: absolute;
+    top:7.4vh;
+    left:2vh;
+    font-size:1.2vh;
+    text-transform: uppercase;
+}
+
+.frequence-input {
+    position: absolute;
+    width:10vh;
+    height:4vh;
+    top:10.4vh;
+    left:2vh;
+    font-size:1.2vh;
+    text-transform: uppercase;
+    padding:0;
+    border:none;
+    outline:none;
+    color:white;
+    padding-left:1.2vh;
+    font-size:1.2vh;
+    border-radius:0.4vh;
+    background:rgba(255, 255, 255, 0.04);
+}
+
+.enter-channel-button {
+    position: absolute;
+    width:14vh;
+    height:4vh;
+    top:10.4vh;
+    right:2vh;
+    border:none;
+    outline:none;
+    color:white;
+    font-weight:500;;
+    text-shadow:0 0 0.6vh rgb(0, 0, 0);
+    background:rgba(255, 255, 255, 0.04);
+    font-size:1.4vh;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    border-radius:0.4vh;
+}
+
+.enter-channel-button:active {
+    margin-top:0.2vh;
+}
+
+.enter-channel-button:hover {
+    cursor:pointer;
+}
+
+.enter-channel-button:hover:before {
+    opacity:1;
+}
+
+.enter-channel-button:before {
+    opacity:0;
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    border-radius:0.4vh;
+    content:"";
+    background: repeating-linear-gradient(
+        -55deg,
+        rgba(30, 255, 0, 0.24),
+        rgba(30, 255, 0, 0.24) 1.0vh,
+        rgba(30, 255, 0, 0.28) 1.0vh,
+        rgba(30, 255, 0, 0.28)  2.0vh
+      );
+
+    transition:400ms;
+    backface-visibility: hidden;
+}
+
+.leave-channel-button {
+    position: absolute;
+    width:26vh;
+    height:4vh;
+    top:10.4vh;
+    left:50%;
+    border:none;
+    outline:none;
+    color:white;
+    font-weight:500;
+    transform:translateX(-50%);
+    text-shadow:0 0 0.6vh rgb(0, 0, 0);
+    background:rgba(255, 255, 255, 0.04);
+    font-size:1.4vh;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    border-radius:0.4vh;
+}
+
+.leave-channel-button:active {
+    margin-top:0.2vh;
+}
+
+.leave-channel-button:hover {
+    cursor:pointer;
+}
+
+.leave-channel-button:hover:before {
+    opacity:1;
+}
+
+.leave-channel-button:before {
+    opacity:0;
+    position: absolute;
+    z-index:-1;
+    width:100%;
+    height:100%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    border-radius:0.4vh;
+    content:"";
+    background: repeating-linear-gradient(
+        -55deg,
+        rgba(30, 255, 0, 0.24),
+        rgba(30, 255, 0, 0.24) 1.0vh,
+        rgba(30, 255, 0, 0.28) 1.0vh,
+        rgba(30, 255, 0, 0.28)  2.0vh
+      );
+
+    transition:400ms;
+    backface-visibility: hidden;
+}
+
+
+.checkbox-item {
+    position: relative;
+    display:block;
+    margin-top:2.8vh;
+    bottom:-14vh;
+    left:2vh;
+    padding:0.2vh;
+    cursor: pointer;
+    font-size: 1.4vh;
+    color:white;
+}
+
+.checkbox-text {
+    position: absolute;
+    left:2.8vh;
+    top:0.2vh;
+    width:40vh;
+    text-transform: upper;
+}
+
+.checkbox-item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.8vh;
+  width: 1.8vh;
+  border-radius:0.2vh;
+  border:0.1vh solid rgba(255, 255, 255, 0.315);
+  background:rgba(255, 255, 255, 0.04);
+  transition: 200ms;
+}
+
+.checkbox-item:hover input ~ .checkmark {
+    border-color:#1eff00;
+}
+
+.checkbox-item input:checked ~ .checkmark {
+    border-color:#1eff00;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-item input:checked ~ .checkmark:after {
+    display: block;
+    border-color:#1eff00;
+}
+
+.checkbox-item .checkmark:after {
+    position: relative;
+    left: 50%;
+    top: 44%;
+    width: 0.4vh;
+    height:0.68vh;
+    border: solid rgb(255, 255, 255);
+    border-width: 0 0.2vh 0.2vh 0;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.member-list {
+    position: absolute;
+    width:27.0vh;
+    height:12.8vh;
+    left:2vh;
+    top:30.8vh;
+}
+
+.member-list-scroll {
+    position: absolute;
+    width:27.0vh;
+    height:12.8vh;
+    overflow:auto;
+}
+
+.member-list-refresh-button {
+    position: absolute;
+    top:-2vh;
+    right:0.8vh;
+    font-size:1.2vh;
+    color:white;
+    background:-webkit-linear-gradient(rgb(255, 255, 255), #c7c7c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 4;
+}
+
+.member-list-refresh-button:active {
+    margin-top:0.12vh;
+}
+
+.member-list-refresh-button:hover {
+    cursor:pointer;
+    background:-webkit-linear-gradient(#1eff00, #0d7000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.member-list-item {
+    position: relative;
+    display:block;
+    white-space:nowrap;
+    width:26vh;
+    height:2.8vh;
+    top:-0.4vh;
+    border-radius:0.4vh;
+    margin-top:0.4vh;
+    left:0;
+    font-size:1.2vh;
+    text-align:center;
+    background:rgba(255, 255, 255, 0.04);
+}
+
+.member-list-item span {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+
+.content {
+    position: absolute;
+    width:100%;
+    height:100%;
+    transition:400ms
+}
+
+.volume-slider {
+    position: relative;
+    padding-bottom:3.4vh;
+    background-color: none;
+    width: 32.2vh;
+    left:2vh;
+    top: 18.6vh;
+}
+
+.volume-slider-title {
+    position: absolute;
+    top:-2.4vh;
+    left:0vh;
+    font-size:1.2vh;
+    text-transform: uppercase;
+}
+
+input[type="range"]{
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: block;
+    width: 80%;
+    height: 0.6vh;
+    background-color: #d5d5d5;
+    border-radius: 0.8vh;
+    outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track{
+    -webkit-appearance: none;
+    height: 0.8vh;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 1.2vh;
+    width: 1.2vh;
+    background-color: var(--slider-thumb);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -0.22vh;
+    border: none;
+}
+
+.popup {
+    position: absolute;
+    width:26vh;
+    height:18.6vh;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    background: repeating-linear-gradient(
+        -55deg,
+        rgba(56, 56, 56, 0.36),
+        rgba(56, 56, 56, 0.36) 1.0vh,
+        rgba(56, 56, 56, 0.4), 1.0vh,
+        rgba(56, 56, 56, 0.4) 2.0vh
+      );
+    border-radius:0.4vh;
+    background-color:rgb(0, 0, 0);
+    box-shadow:0vh 0vh 4vh rgba(0, 0, 0, 0.699);
+}
+
+.popup-info-title {
+    position: absolute;
+    top:6vh;
+    left:2vh;
+    font-size:1.2vh;
+    text-transform: uppercase;
+}
+
+.popup-input {
+    position: absolute;
+    width:20vh;
+    height:4vh;
+    top:8vh;
+    left:2vh;
+    font-size:1.2vh;
+    text-transform: uppercase;
+    padding:0;
+    border:none;
+    outline:none;
+    color:white;
+    padding-left:1.2vh;
+    font-size:1.2vh;
+    border-radius:0.4vh;
+    background:rgba(255, 255, 255, 0.04);
+}
+
+.popup-button {
+    position: absolute;
+    width:21.2vh;
+    height:4vh;
+    top:12.4vh;
+    left:2vh;
+    border:none;
+    outline:none;
+    color:white;
+    font-weight:500;;
+    text-shadow:0 0 0.6vh rgb(0, 0, 0);
+    background:rgba(255, 255, 255, 0.04);
+    font-size:1.4vh;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    border-radius:0.4vh;
+}
+
+.popup-button:active {
+    margin-top:0.2vh;
+}
+
+.popup-button:hover {
+    cursor:pointer;
+}
+
+.popup-button:hover:before {
+    opacity:1;
+}
+
+.popup-button:before {
+    opacity:0;
+    position: absolute;
+    z-index:-1;
+    width:100%;
+    height:100%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    border-radius:0.4vh;
+    content:"";
+    background: repeating-linear-gradient(
+        -55deg,
+        rgba(30, 255, 0, 0.24),
+        rgba(30, 255, 0, 0.24) 1.0vh,
+        rgba(30, 255, 0, 0.28) 1.0vh,
+        rgba(30, 255, 0, 0.28)  2.0vh
+      );
+    transition:400ms;
+    backface-visibility: hidden;
+}
