@@ -3,7 +3,8 @@
 Old FiveM scripts by MSK Scripts and Musiker15, collected in one place.
 
 Every folder was a separate repository before. They were merged here with their full Git
-history, so `git log -- <folder>` still shows every commit of the original repository.
+history, so `git log -- <folder>` still shows every commit of the original repository. The one
+exception is msk_usedcardealer, which was private and was added with its last state only.
 
 **Status:** archived. These scripts get no updates, no bug fixes and no support. They may not
 work with current versions of ESX, QBCore or other resources. Use them as they are.
@@ -12,10 +13,15 @@ work with current versions of ESX, QBCore or other resources. Use them as they a
 
 | Script | Description | License | Last update | Original repository |
 |---|---|---|---|---|
+| [msk_aimedic](msk_aimedic) | [ESX] AI Medic NPC | LGPL-3.0 | 2026-09-14 | MSK-Scripts/msk_aimedic |
+| [msk_airdefense](msk_airdefense) | [ESX] Air Defense script for FiveM | LGPL-3.0 | 2026-07-10 | MSK-Scripts/msk_airdefense |
+| [msk_aitaxi](msk_aitaxi) | [ESX/QBCore] AI Taxi | LGPL-3.0 | 2026-09-14 | MSK-Scripts/msk_aitaxi |
 | [msk_armor](msk_armor) | Multiple Armor Vests | see folder | 2024-09-12 | MSK-Scripts/msk_armor |
 | [msk_backpack](msk_backpack) | [ESX] Multiple Backpack Item | MIT | 2023-07-07 | Musiker15/msk_backpack |
 | [msk_banking_nativeui](msk_banking_nativeui) | Banking System with NativeUI | see folder | 2026-03-11 | MSK-Scripts/msk_banking_nativeui |
 | [msk_bansystem](msk_bansystem) | [STANDALONE] Simple Ban System | MIT | 2024-11-23 | MSK-Scripts/msk_bansystem |
+| [msk_blackmoney](msk_blackmoney) | [ESX] Blackmoney Washing Script | LGPL-3.0 | 2026-09-14 | MSK-Scripts/msk_blackmoney |
+| [msk_blackout](msk_blackout) | [ESX/QBCore] Weather Blackout Miniheist | LGPL-3.0 | 2026-09-14 | MSK-Scripts/msk_blackout |
 | [msk_crafting](msk_crafting) | A Crafting System with NativeUI | see folder | 2026-03-11 | MSK-Scripts/msk_crafting |
 | [msk_deathcounter](msk_deathcounter) | [ESX] Deathcounter integrated in myMultichar | GPL-3.0 | 2023-06-10 | MSK-Scripts/msk_deathcounter |
 | [msk_discordRichPresence](msk_discordRichPresence) | Displays some Information about your Server | none | 2024-03-04 | MSK-Scripts/msk_discordRichPresence |
@@ -33,6 +39,7 @@ work with current versions of ESX, QBCore or other resources. Use them as they a
 | [msk_teleporter](msk_teleporter) | [ESX] Teleporter | LGPL-3.0 | 2026-07-10 | MSK-Scripts/msk_teleporter |
 | [msk_trackphone](msk_trackphone) | [ESX/QBCore] Get the Player by PhoneNumber and add a Blip | MIT | 2024-03-04 | MSK-Scripts/msk_trackphone |
 | [msk_tsunami](msk_tsunami) | [STANDALONE] Water level rises, remains for a few minutes and then drops again automatically | LGPL-3.0 | 2026-09-14 | MSK-Scripts/msk_tsunami |
+| [msk_usedcardealer](msk_usedcardealer) | Sell used Vehicles | GPL-3.0 | 2024-03-04 | MSK-Scripts/msk_usedcardealer (last state only) |
 | [msk_weaponammo](msk_weaponammo) | [ESX] Clips, Components & Tints | see folder | 2026-09-14 | MSK-Scripts/msk_weaponammo |
 | [msk_weaponammoitems](msk_weaponammoitems) | [ESX] Weapon Ammunition as Items | LGPL-3.0 | 2026-07-10 | MSK-Scripts/msk_weaponammoitems |
 | [msk_webhook](msk_webhook) | [STANDALONE] Send Discord Webhooks | MIT | 2023-06-09 | MSK-Scripts/msk_webhook |
