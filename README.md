@@ -22,7 +22,7 @@ work with current versions of ESX, QBCore or other resources. Use them as they a
 | [msk_bansystem](msk_bansystem) | [STANDALONE] Simple Ban System | LGPL-3.0 | 2024-11-23 | MSK-Scripts/msk_bansystem |
 | [msk_blackmoney](msk_blackmoney) | [ESX] Blackmoney Washing Script | LGPL-3.0 | 2026-09-14 | MSK-Scripts/msk_blackmoney |
 | [msk_blackout](msk_blackout) | [ESX/QBCore] Weather Blackout Miniheist | LGPL-3.0 | 2026-09-14 | MSK-Scripts/msk_blackout |
-| [msk_crafting](msk_crafting) | A Crafting System with NativeUI | see folder | 2026-03-11 | MSK-Scripts/msk_crafting |
+| [msk_crafting](msk_crafting) | A Crafting System with NativeUI | LGPL-3.0 | 2026-03-11 | MSK-Scripts/msk_crafting |
 | [msk_deathcounter](msk_deathcounter) | [ESX] Deathcounter integrated in myMultichar | LGPL-3.0 | 2023-06-10 | MSK-Scripts/msk_deathcounter |
 | [msk_discordRichPresence](msk_discordRichPresence) | Displays some Information about your Server | LGPL-3.0 | 2024-03-04 | MSK-Scripts/msk_discordRichPresence |
 | [msk_dustbin](msk_dustbin) | [ESX] Dustbin Storage with ox_lib | LGPL-3.0 | 2026-07-10 | MSK-Scripts/msk_dustbin |
@@ -58,5 +58,5 @@ The scripts are licensed under the GNU Lesser General Public License v3.0, see t
 file in each folder. Some of them were MIT, GPL-3.0 or unlicensed in their original repository.
 Copies taken from there keep the license they had at that time.
 
-Three folders are not covered: msk_crafting keeps its own license file, and Snippets and
-interiorproxies have no license.
+Two folders are not covered: Snippets contains code by others (LegacyFuel by InZidiuZ and a
+patched ESX file), and interiorproxies is a modified game file. Neither has a license.
