@@ -32,4 +32,4 @@ Config.GiveParachute = true  -- Set to true if you want ti give a Parachute when
 * [[ESX] Shopsystem - NativeUI & Database Feature](https://forum.cfx.re/t/release-esx-msk-shopsystem-nativeui-database-feature/4853593)
 
 ## License
-**GNU General Public License v3.0**
+**GNU Lesser General Public License v3.0**
