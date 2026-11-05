@@ -58,5 +58,6 @@ The scripts are licensed under the GNU Lesser General Public License v3.0, see t
 file in each folder. Some of them were MIT, GPL-3.0 or unlicensed in their original repository.
 Copies taken from there keep the license they had at that time.
 
-Two folders are not covered: Snippets contains code by others (LegacyFuel by InZidiuZ and a
-patched ESX file), and interiorproxies is a modified game file. Neither has a license.
+Two folders are not covered. Snippets contains code by others (LegacyFuel by InZidiuZ with its
+own license file, and a patched ESX file under the ESX license). interiorproxies is a modified
+game file without a license.
