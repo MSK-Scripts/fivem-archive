@@ -2,9 +2,10 @@
 
 Old FiveM scripts by MSK Scripts and Musiker15, collected in one place.
 
-Every folder was a separate repository before. They were merged here with their full Git
-history, so `git log -- <folder>` still shows every commit of the original repository. The one
-exception is msk_usedcardealer, which was private and was added with its last state only.
+Most folders were a separate repository before. They were merged here with their full Git
+history, so `git log -- <folder>` still shows every commit of the original repository. Two
+folders were added with their last state only: msk_usedcardealer, which was private, and
+msk_banking, whose code was never on GitHub.
 
 **Status:** archived. These scripts get no updates, no bug fixes and no support. They may not
 work with current versions of ESX, QBCore or other resources. Use them as they are.
@@ -18,6 +19,7 @@ work with current versions of ESX, QBCore or other resources. Use them as they a
 | [msk_aitaxi](msk_aitaxi) | [ESX/QBCore] AI Taxi | LGPL-3.0 | 2026-09-14 | MSK-Scripts/msk_aitaxi |
 | [msk_armor](msk_armor) | Multiple Armor Vests | LGPL-3.0 | 2024-09-12 | MSK-Scripts/msk_armor |
 | [msk_backpack](msk_backpack) | [ESX] Multiple Backpack Item | LGPL-3.0 | 2023-07-07 | Musiker15/msk_backpack |
+| [msk_banking](msk_banking) | [ESX] Advanced Banking System with NativeUI, version 3.6.5 | LGPL-3.0 | 2026-03-11 | none, last state only |
 | [msk_banking_nativeui](msk_banking_nativeui) | Banking System with NativeUI | LGPL-3.0 | 2026-03-11 | MSK-Scripts/msk_banking_nativeui |
 | [msk_bansystem](msk_bansystem) | [STANDALONE] Simple Ban System | LGPL-3.0 | 2024-11-23 | MSK-Scripts/msk_bansystem |
 | [msk_blackmoney](msk_blackmoney) | [ESX] Blackmoney Washing Script | LGPL-3.0 | 2026-09-14 | MSK-Scripts/msk_blackmoney |
